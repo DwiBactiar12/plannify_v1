@@ -1,4 +1,10 @@
-import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader } from "@/Components/ui/alert-dialog";
+import {
+    AlertDialog,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogFooter,
+    AlertDialogHeader,
+} from '@/Components/ui/alert-dialog';
 
 export function ActionDialog({ trigger, action, title, description }) {
     return (
@@ -15,5 +21,5 @@ export function ActionDialog({ trigger, action, title, description }) {
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
-    )
+    );
 }
