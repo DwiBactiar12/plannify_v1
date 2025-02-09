@@ -31,6 +31,7 @@ export default function AppLayout({ children, title }) {
         {
             title: 'Logout',
             href: '/logout',
+            method: 'post',
             icon: PiLockOpen,
         },
     ];

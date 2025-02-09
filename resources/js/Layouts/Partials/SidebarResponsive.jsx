@@ -18,13 +18,15 @@ export default function SidebarResponsive({ menus, auth, url }) {
                             {menus.map((menu, index) => (
                                 <li>
                                     <Link
-                                        key={index}
+                                        key={menu.title}
                                         href={menu.href}
+                                        method={menu?.method ? menu?.method : 'get'}
+                                        as="button"
                                         className={cn(
                                             url.startsWith(menu.href)
                                                 ? 'bg-red-500 text-white'
                                                 : 'text-foreground hover:bg-gray-100',
-                                            'flex p-3 text-sm font-semibold leading-relaxed tracking-tighter  rounded-md group gap-x-3 ',
+                                            'flex w-full p-3 text-sm font-semibold leading-relaxed tracking-tighter  rounded-md group gap-x-3 ',
                                         )}
                                     >
                                         <menu.icon
