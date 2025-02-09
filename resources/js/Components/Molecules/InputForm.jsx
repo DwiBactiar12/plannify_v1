@@ -15,6 +15,7 @@ export default function InputForm({
     infoTitle,
     ClassNameInfoTitle = 'text-blue-600',
     infoLink,
+    placeholder,
 }) {
     return (
         <div>
@@ -34,6 +35,7 @@ export default function InputForm({
                 name={name}
                 value={value}
                 className="mt-1 block w-full"
+                placeholder={placeholder}
                 isFocused={isFocused}
                 onChange={onChange}
                 onError={onError && <InputError message={onError} className="mt-1" />}
