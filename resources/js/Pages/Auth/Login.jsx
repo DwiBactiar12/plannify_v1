@@ -41,7 +41,7 @@ export default function Login({ status, canResetPassword }) {
                         <CardContent>
                             <div className="mt-2 sm:mx-auto sm:w-full sm:max-w-sm">
                                 {status && <div className="mb-4 text-sm font-medium text-green-600">{status}</div>}
-                                <form className="space-y-6" onSubmit={submit}>
+                                <form className="space-y-3" onSubmit={submit}>
                                     {/* form */}
                                     <InputForm
                                         name="email"
