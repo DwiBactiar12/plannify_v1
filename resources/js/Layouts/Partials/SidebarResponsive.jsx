@@ -1,7 +1,8 @@
+import { cn } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
 import { PiPlus } from 'react-icons/pi';
 
-export default function SidebarResponsive({ menus, auth }) {
+export default function SidebarResponsive({ menus, auth, url }) {
     return (
         <div className="flex flex-col px-6 pb-2 overflow-y-auto bg-white dark:bg-gray-900 grow gap-y-5">
             <div className="flex h-16 shrink-0 items-center space-x-1.5">
@@ -19,9 +20,19 @@ export default function SidebarResponsive({ menus, auth }) {
                                     <Link
                                         key={index}
                                         href={menu.href}
-                                        className="flex p-3 text-sm font-semibold leading-relaxed text-foreground hover:bg-gray-100  group gap-x-3 "
+                                        className={cn(
+                                            url.startsWith(menu.href)
+                                                ? 'bg-red-500 text-white'
+                                                : 'text-foreground hover:bg-gray-100',
+                                            'flex p-3 text-sm font-semibold leading-relaxed tracking-tighter  rounded-md group gap-x-3 ',
+                                        )}
                                     >
-                                        <menu.icon className="w-6 h-6 text-foreground shrink-0" />
+                                        <menu.icon
+                                            className={cn(
+                                                url.startsWith(menu.href) ? ' text-white' : 'text-foreground ',
+                                                'w-6 h-6  shrink-0',
+                                            )}
+                                        />
                                         {menu.title}
                                     </Link>
                                 </li>

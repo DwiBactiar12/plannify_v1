@@ -10,25 +10,27 @@ export default function AppLayout({ children, title }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const auth = usePage().props.auth.user;
+    const { url } = usePage();
+    console.log(url);
     const menus = [
         {
             title: 'Dashboard',
-            href: '/',
+            href: '/dashboard',
             icon: PiSidebar,
         },
         {
             title: 'People',
-            href: '/',
+            href: '/people',
             icon: PiUser,
         },
         {
             title: 'My Task',
-            href: '/',
+            href: '/mytask',
             icon: PiSquaresFour,
         },
         {
             title: 'Logout',
-            href: '/',
+            href: '/logout',
             icon: PiLockOpen,
         },
     ];
@@ -83,7 +85,7 @@ export default function AppLayout({ children, title }) {
                                         </div>
                                     </Transition.Child>
                                     {/* Sidebar Responsive */}
-                                    <SidebarResponsive menus={menus} auth={auth} />
+                                    <SidebarResponsive menus={menus} auth={auth} url={url} />
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
@@ -102,7 +104,7 @@ export default function AppLayout({ children, title }) {
                         </div>
                         {/* Sidebar */}
 
-                        <Sidebar menus={menus} auth={auth} />
+                        <Sidebar menus={menus} auth={auth} url={url} />
                     </div>
                 </div>
 

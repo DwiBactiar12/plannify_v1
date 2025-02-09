@@ -1,8 +1,9 @@
 import { Avatar, AvatarFallback } from '@/Components/ui/avatar';
+import { cn } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
 import { PiPlus } from 'react-icons/pi';
 
-export default function Sidebar({ menus, auth }) {
+export default function Sidebar({ menus, auth, url }) {
     return (
         <nav className="flex flex-col flex-1">
             <ul role="list" className="flex flex-col flex-1 gap-y-7">
@@ -15,9 +16,19 @@ export default function Sidebar({ menus, auth }) {
                                 <Link
                                     key={index}
                                     href={menu.href}
-                                    className="flex  p-3 text-sm font-semibold leading-relaxed tracking-tighter text-foreground hover:bg-gray-100 rounded-md group gap-x-3 "
+                                    className={cn(
+                                        url.startsWith(menu.href)
+                                            ? 'bg-red-500 text-white'
+                                            : 'text-foreground hover:bg-gray-100',
+                                        'flex p-3 text-sm font-semibold leading-relaxed tracking-tighter  rounded-md group gap-x-3 ',
+                                    )}
                                 >
-                                    <menu.icon className="w-6 h-6 text-foreground shrink-0" />
+                                    <menu.icon
+                                        className={cn(
+                                            url.startsWith(menu.href) ? ' text-white' : 'text-foreground ',
+                                            'w-6 h-6  shrink-0',
+                                        )}
+                                    />
                                     {menu.title}
                                 </Link>
                             </li>
